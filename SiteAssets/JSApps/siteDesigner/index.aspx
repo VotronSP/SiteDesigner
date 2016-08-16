@@ -1,36 +1,46 @@
+<%@ Page language="C#" %>
+<%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Import Namespace="Microsoft.SharePoint" %>
 <!DOCTYPE html>
 <html>
     <head>
         <!-- LOAD SP.JS -->
-        <script type="text/javascript" src="/_layouts/1033/init.js"></script>
-        <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/4.0/1/MicrosoftAjax.js"></script>
-        <script type="text/javascript" src="/_layouts/sp.core.js"></script>
-        <script type="text/javascript" src="/_layouts/sp.runtime.js"></script>
-        <script type="text/javascript" src="/_layouts/sp.js"></script>
+        <!--Sharepoint Dependencies-->
+        <script src="/_layouts/1033/init.js"></script>
+        <script src="/_layouts/1033/core.js"></script>
+        <script src="/_layouts/MicrosoftAjax.js"></script>
+        <script src="/_layouts/SP.Core.js"></script>
+        <script src="/_layouts/SP.Runtime.js"></script>
+        <script src="/_layouts/SP.js"></script>
+        <script src="/_layouts/SP.UI.Dialog.js"></script>
+        <script src="/_layouts/ScriptResx.ashx?culture=en%2Dus&name=SP%2ERes"></script>
         <title>
             Site Designer: Design, Organize and Simplify your Site
         </title>
         <!-- Master CSS -->
-        <link rel="stylesheet" type="text/css" href="styles/master.css">
+        <link rel="stylesheet" type="text/css" href="/SiteAssets/JSApps/siteDesigner/styles/master.css">
         <!-- UI Kit Style -->
         <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.almost-flat.min.css">
         <!-- UI Font Raleway -->
         <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <!-- Animate CSS -->
-         <link rel="stylesheet" href="styles/animate.css">
+         <link rel="stylesheet" href="/SiteAssets/JSApps/siteDesigner/styles/animate.css">
         <!-- NG Animate CSS -->
-         <link rel="stylesheet" href="styles/ng-animate.css">
+         <link rel="stylesheet" href="/SiteAssets/JSApps/siteDesigner/styles/ng-animate.css">
         <!-- Please Wait Loading Screen -->
-        <link href="styles/please-wait.css" rel="stylesheet">
+        <link href="/SiteAssets/JSApps/siteDesigner/styles/please-wait.css" rel="stylesheet">
         <!-- Materialize Form CSS -->
-        <link rel="stylesheet" href="styles/materialize.css">
+        <link rel="stylesheet" href="/SiteAssets/JSApps/siteDesigner/styles/materialize.css">
         <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/SiteAssets/JSApps/siteDesigner/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/SiteAssets/JSApps/siteDesigner/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/SiteAssets/JSApps/siteDesigner/favicon/favicon-16x16.png">
     </head>
     <body>   
-
+<!-- required: SharePoint FormDigest -->
+<form runat="server">
+  <SharePoint:FormDigest runat="server"></SharePoint:FormDigest>
+</form>
         <!-- Begin Global Header -->
         <div class="uk-grid">
             <div class="uk-width-1-1">
@@ -43,7 +53,7 @@
                     </span>
 
                     <!-- Session User -->
-                    <span class="railwayFont uk-float-right"><span><b>Current Session Logged in as:</b> Site Administrator - </span><a>Logout?</a></span>
+                    <span class="railwayFont uk-float-right"><span><b>Current Session Logged as:</b> <span id="userLoggedIn"></span> - </span><a>Logout?</a></span>
 
                     <!-- Help Menu -->
                     <div class="uk-vertical-align-bottom fixed-action-btn horizontal click-to-toggle" >
@@ -114,13 +124,13 @@
         <!--<script src="assets/js/AngularSP.min.js"></script>
         <script src="assets/js/ng-sharepoint.min.js"></script>-->
         <!-- Loading Screen Injection -->
-        <script type="text/javascript" src="assets/js/please-wait.min.js"></script>
+        <script type="text/javascript" src="/SiteAssets/JSApps/siteDesigner/assets/js/please-wait.min.js"></script>
         <!-- Inject the App Engine -->
-        <script type="text/javascript" src="assets/js/appEngine.js"></script>
+        <script type="text/javascript" src="/SiteAssets/JSApps/siteDesigner/assets/js/appEngine.js"></script>
          <!-- Loader Settings -->
         <script type="text/javascript">
             window.loading_screen = window.pleaseWait({
-            logo: "assets/images/pulse_logo.png",
+            logo: "/SiteAssets/JSApps/siteDesigner/assets/images/pulse_logo.png",
             backgroundColor: '#fafafa',
             loadingHtml: "<div class='uk-width-1-1 uk-height:1-2'><p class='shadowText loading-message' style='font-family: RailWay, sans-serif; font-size: 20px; color: #65656a;'>" + randomLoadingMessage() + "</p><div class='spinner'></div>" +
             "<span style='font-family: Raleway, sans-serif; font-size: 65px;'>s<span style='color:#779949;'>i</span><span style='color:#72b1c8;'>t</span><span style='color:#f5a81c;'>e</span></span>" +

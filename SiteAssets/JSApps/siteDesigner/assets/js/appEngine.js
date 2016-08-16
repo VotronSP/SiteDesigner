@@ -19,7 +19,7 @@ angular.module('sdApp', ['ngAnimate', 'ui.router'])
         // route to show our sdard /sd
         .state('sd', {
             url: '/sd',
-            templateUrl: 'sd-start.html',
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-start.html',
             controller: 'sdController'
         })
         
@@ -28,30 +28,30 @@ angular.module('sdApp', ['ngAnimate', 'ui.router'])
         // url will be nested (/sd/initial)
         .state('sd.home', {
             url: '/home',
-            templateUrl: 'sd-home.html'
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-home.html'
         })
         // url will be nested (/sd/initial)
         .state('sd.initial', {
             url: '/initial',
-            templateUrl: 'sd-initial.html'
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-initial.html'
         })
         
         // url will be /sd/build
         .state('sd.build', {
             url: '/build',
-            templateUrl: 'sd-build.html'
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-build.html'
         })
 
          // url will be /sd/navigation
         .state('sd.navigation', {
             url: '/navigation',
-            templateUrl: 'sd-navigation.html'
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-navigation.html'
         })
         
         // url will be /sd/finalize
         .state('sd.finalize', {
             url: '/finalize',
-            templateUrl: 'sd-finalize.html'
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-finalize.html'
         });
         
     // catch all route
@@ -61,9 +61,8 @@ angular.module('sdApp', ['ngAnimate', 'ui.router'])
 
 // our controller for the form
 // =============================================================================
-.controller('sdController', function($scope) {
-  
-    
+.controller('sdController', function($scope) {  
+
 });
 
 // Loading Screen Messages
@@ -101,11 +100,12 @@ angular.module('sdApp', ['ngAnimate', 'ui.router'])
                 'height': 'auto'
                 })
                 
-            },2500);
+            },5000);
 }
 
 //Modal on Startup
 function modalStartApp() {
+    
     UIkit.modal.alert("<span><span style='font-family: Raleway, sans-serif; font-size: 65px;'>s<span style='color:#779949;'>i</span><span style='color:#72b1c8;'>t</span><span style='color:#f5a81c;'>e</span></span>" +
     "<span class='uk-text-top shadowText' style='color: #0071b9; font-family: Raleway, sans-serif; font-size: 25px;'>designer<span class='uk-text-top' style='color:#e63e30;'>.</span></span></span><hr>" +
     "<span class='railwayFont uk-text-center'>Welcome to <b>Site Designer</b> for Pulse. <br> Site Designer will make everything easy for you when it comes to managing" +
@@ -113,7 +113,8 @@ function modalStartApp() {
     " customize your navigation and implement your changes straight from one easy to use Interface.<br><br><span class='uk-text-danger'>Read the quick tip <u>panels</u> upon closing this notification.</span>" +
     " <br><br><center><b> Click 'ok' to continue.<b></center></span>");
 
-    Materialize.toast('Welcome, Site Administrator!', 5000, 'standardToast');
+    Materialize.toast('Welcome, ' +document.getElementById('userLoggedIn').innerHTML+ '!', 5000, 'standardToast');
+
 }
 
 //Apply Property Changes
@@ -159,6 +160,13 @@ function applyDesignChangesDone()
         }
   },3500);
 }
+
+//Load Get User Tools
+$.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/getUser.js", function(){
+
+   console.log("Loaded getUserJS");
+
+});
         
 /* Open Application Window w/ HTML
 <a href="http://pulse.siigroup.com/wizSPA/index.html" onclick="openwindow(this.href); return false;">Link</a>
