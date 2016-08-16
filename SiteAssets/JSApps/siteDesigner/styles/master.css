@@ -1,0 +1,104 @@
+/******************************************************
+Author: Ermal Shkullaku
+Release: 0.0.1
+Company: SI Group 
+Design: Master CSS File for SPA (Page Layouts on Pulse)
+******************************************************/
+
+/* Adjust Background of UI Panels */
+.uk-panel-box-shadow {
+    border-color: transparent !important; 
+    background: #ededed !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/* 3D Text Shadow Effect */
+.shadowText {    	
+    color: rgba(0,0,0,0.6);
+    text-shadow: 2px 8px 9px rgba(0,0,0,0.2),
+                 0px -5px 25px rgba(255,255,255,0.3);
+}
+
+.shadowTextHover {
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.shadowTextHover:hover {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #ededed;
+    text-shadow: 2px 8px 9px rgba(0,0,0,0.2),
+                 0px -5px 25px rgba(255,255,255,0.3);
+}
+
+.uk-offcanvas-bar {
+    background: #999899 !important;
+}
+
+/* Custom Font */
+.railwayFont, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif !important;
+}
+
+/* Hide Body for Loading Screen Until Ready */
+body > .inner {
+  display: none;
+}
+
+body.pg-loaded > .inner {
+  display: block;
+}
+
+/* Loading Spinner for Splash Intro */
+.spinner {
+  width: 40px;
+  height: 40px;
+  background-color: #f5a81c;
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    background-color: #72b1c8; 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    background-color: #e63e30; 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    background-color: #779949; 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  } 100% {
+    background-color: #f5a81c;
+  }
+}
+
+/* Error Handling/Standard Notifications */
+.successToast {
+  color: #fff !important;
+  background: #6fbf4a !important;
+  font-family: 'Raleway';
+}
+
+.failToast {
+  color: #fff !important;
+  background: #e63e30 !important;
+  font-family: 'Raleway';
+}
+
+.standardToast {
+  color: #fff !important;
+  background: #72b1c8 !important;
+  font-family: 'Raleway';
+}
