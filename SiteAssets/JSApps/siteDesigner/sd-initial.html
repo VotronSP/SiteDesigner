@@ -3,11 +3,16 @@
             <div class="uk-margin-top uk-margin-bottom uk-text-center" id=
             "modifyingSiteProps">
                 <span class="railwayFont" style="font-size: 30px;">Managing
-                Properties for: <span class="uk-text-warning">Global
-                IT</span></span>
+                Properties for: <span id="site_title_header" class="uk-text-warning"></span></span>
             </div>
         </div>
     </div>
+
+<div class="uk-grid uk-text-center" style="margin-top: 5px;">
+    <div class="uk-width-1-1">
+        <button id="applyPropChangesBtn" class="btn waves-effect waves-light" onClick="applyPropChanges();" style="background: #779949; font-family: 'Raleway', sans-serif; font-size: 20px;" class=" uk-button-success uk-button" type="button">Apply Changes</button>
+    </div>
+</div>
 
 <div class="propPanels uk-grid railwayFont uk-grid-match uk-grid-small" data-uk-grid-match="{target:'.propPanels'}">
     <div class="uk-width-1-6 uk-container-center uk-text-center">
@@ -49,8 +54,8 @@
                     <form class="col s12">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input class="validate" id="site_name" type="text" value="Global IT">
-                                <label class="active" for="site_name">Change Site Title</label>
+                                <input class="validate" id="site_title" type="text">
+                                <label class="active" for="site_title">Change Site Title</label>
                             </div>
                             <div class="input-field col s6">
                                 <input class="validate" id="site_owner" type="text">
@@ -98,9 +103,21 @@
                 </form>
             </div>
         </div>
-    </div>   
-</div>
-<div class="uk-grid uk-text-center" style="margin-top: 5px;">
-    <div class="uk-width-1-1"><button id="applyPropChangesBtn" class="btn waves-effect waves-light" onClick="applyPropChanges();" style="background: #779949; font-family: 'Raleway', sans-serif; font-size: 20px;" class=" uk-button-success uk-button" type="button">Apply Changes</button>
     </div>
+</div>
+
+
+<div class="uk-grid" style="margin-top: 5px;">
+    <div class="uk-width-1-2 uk-container-center uk-text-center">
+        <div class="uk-panel uk-panel-box uk-panel-box-primary">
+            <h3 class="uk-panel-title"><i class="fa fa-list" aria-hidden="true"></i> Lists and Libraries</h3>
+                <ul id="listInfo" class="collapsible" data-collapsible="accordion">
+                    
+                </ul>
+        </div>
+    </div>    
+</div>
+
+<div ng-init="loadProps()"></div>
+
 </div>

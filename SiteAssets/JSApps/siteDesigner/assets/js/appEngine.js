@@ -8,7 +8,31 @@ Design: Master JS File for SPA (Page Layouts on Pulse)
 // appEngine.js
 // Create our SPA and inject ngAnimate and ui-router 
 // =============================================================================
-angular.module('sdApp', ['ngAnimate', 'ui.router'])
+
+//Load Globa Variable for Relative url
+var siteRelURL = window.opener.siteURL;
+console.log(siteRelURL);
+
+//Load Get User Tools
+$.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/getSite.js", function(){
+   console.log("Loaded getSiteJS");
+
+});
+$.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/getUser.js", function(){
+   console.log("Loaded getUserJS");
+
+});
+$.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/getPerm.js", function(){
+   console.log("Loaded getPermJS");
+
+});
+$.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/getLists.js", function(){
+   console.log("Loaded getListsJS");
+
+});
+
+
+var sdApp = angular.module('sdApp', ['ngAnimate', 'ui.router'])
 
 // configuring our routes 
 // =============================================================================
@@ -28,30 +52,35 @@ angular.module('sdApp', ['ngAnimate', 'ui.router'])
         // url will be nested (/sd/initial)
         .state('sd.home', {
             url: '/home',
-            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-home.html'
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-home.html',
+            controller: 'sdHomeController'
         })
         // url will be nested (/sd/initial)
         .state('sd.initial', {
             url: '/initial',
-            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-initial.html'
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-initial.html',
+            controller: 'sdInitialController'
         })
         
         // url will be /sd/build
         .state('sd.build', {
             url: '/build',
-            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-build.html'
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-build.html',
+            controller: 'sdBuildController'
         })
 
          // url will be /sd/navigation
         .state('sd.navigation', {
             url: '/navigation',
-            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-navigation.html'
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-navigation.html',
+            controller: 'dNavigationController'
         })
         
         // url will be /sd/finalize
         .state('sd.finalize', {
             url: '/finalize',
-            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-finalize.html'
+            templateUrl: '/SiteAssets/JSApps/siteDesigner/sd-finalize.html',
+            controller: 'sdFinalizeController'
         });
         
     // catch all route
@@ -59,11 +88,38 @@ angular.module('sdApp', ['ngAnimate', 'ui.router'])
     $urlRouterProvider.otherwise('/sd');
 })
 
-// our controller for the form
+// our controllers for the app
 // =============================================================================
-.controller('sdController', function($scope) {  
+sdApp.controller('sdController', function($scope) {  
 
 });
+
+sdApp.controller('sdHomeController', function($scope) { 
+$scope.loadProps = function loadUser() {
+       checkUserPermissions();
+       getUserProps();
+}
+}); 
+
+sdApp.controller('sdInitialController', function($scope) { 
+
+$scope.loadProps = function loadProps() {
+  clickedSitePropertiesTitle();
+  getSiteLists();
+    }
+}); 
+
+sdApp.controller('sdBuildController', function($scope) { 
+
+}); 
+
+sdApp.controller('sdNavigationController', function($scope) { 
+
+}); 
+
+sdApp.controller('sdFinalizeController', function($scope) { 
+
+}); 
 
 // Loading Screen Messages
  function randomLoadingMessage() {
@@ -86,21 +142,9 @@ angular.module('sdApp', ['ngAnimate', 'ui.router'])
 //Loading Screen Timeout, Fix Overflows on Animation
  window.onload=function(){
              $('html, body').css({
-                'overflow': 'hidden',
-                'height': '100%'
-                })
-
-            window.setTimeout(function(){
-                    loading_screen.finish();
-                    modalStartApp();
-
-            $('html, body').css({
-                'overflow-y': 'auto',
                 'overflow-x': 'hidden',
-                'height': 'auto'
-                })
-                
-            },5000);
+                'height': '100%'
+                })    
 }
 
 //Modal on Startup
@@ -113,9 +157,10 @@ function modalStartApp() {
     " customize your navigation and implement your changes straight from one easy to use Interface.<br><br><span class='uk-text-danger'>Read the quick tip <u>panels</u> upon closing this notification.</span>" +
     " <br><br><center><b> Click 'ok' to continue.<b></center></span>");
 
-    Materialize.toast('Welcome, ' +document.getElementById('userLoggedIn').innerHTML+ '!', 5000, 'standardToast');
-
+    Materialize.toast('Welcome, ' +currentUser.get_title().split(',')[1]+ ' ' +currentUser.get_title().split(',')[0]+'!', 5000, 'standardToast');
 }
+
+
 
 //Apply Property Changes
 function applyPropChanges()
@@ -131,6 +176,8 @@ function applyPropChangesDone()
         try{
             applyPropChangesBtn.disabled=false;
             applyPropChangesBtn.innerHTML='Apply Changes';
+            setPageTitle();
+            setSiteOwner();
             /* Always last script line */ Materialize.toast('Changes Applied Successfully', 4000, 'successToast')
         }
         catch(err) {
@@ -161,17 +208,5 @@ function applyDesignChangesDone()
   },3500);
 }
 
-//Load Get User Tools
-$.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/getUser.js", function(){
 
-   console.log("Loaded getUserJS");
 
-});
-        
-/* Open Application Window w/ HTML
-<a href="http://pulse.siigroup.com/wizSPA/index.html" onclick="openwindow(this.href); return false;">Link</a>
-function openwindow(url){
-    NewWindow=window.open(url,'newWin','fullscreen=yes,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no');
-    NewWindow.focus(); void(0);  
-}
-*/

@@ -45,7 +45,7 @@
         <div class="uk-grid">
             <div class="uk-width-1-1">
                 <div class="card-panel z-depth-1">
-
+                    
                     <!-- Logo (site.designer) -->
                     <span>
                         <span style="font-family: 'Raleway', sans-serif; font-size: 65px;">s<span style="color:#779949;">i</span><span style="color:#72b1c8;">t</span><span style="color:#f5a81c;">e</span></span>
@@ -53,7 +53,7 @@
                     </span>
 
                     <!-- Session User -->
-                    <span class="railwayFont uk-float-right"><span><b>Current Session Logged as:</b> <span id="userLoggedIn"></span> - </span><a>Logout?</a></span>
+                    <span class="railwayFont uk-float-right"><span><b>Current Session Logged as:</b> <span id="userLoggedIn"></span> - </span><a data-uk-modal="{target:'#exitClicked'}">Logout?</a></span>
 
                     <!-- Help Menu -->
                     <div class="uk-vertical-align-bottom fixed-action-btn horizontal click-to-toggle" >
@@ -85,7 +85,7 @@
                 <div class="">
                     <div ui-view>
                     </div>
-                </div>     
+                </div> 
             </div>
       </div>
       
@@ -106,10 +106,13 @@
             <div class="uk-align-center uk-modal-dialog">
                 <a class="uk-modal-close uk-close"></a>
                     <div class="uk-text-danger" style="font-family: 'Raleway', sans-serif; font-size: 25px;">Are you sure you want to <b>quit</b>?</div>
+                    <br>
+                    <div style="font-family: 'Raleway', sans-serif; font-size: 20px;">Make sure you've saved your changes before you <b>quit</b>!</div>
                         <br>
                         <div class="uk-text-center">
                             <button style="font-family: 'Raleway', sans-serif; font-size: 20px;" class="btn waves-effect waves-teal uk-modal-close" type="button">Back</button>
-                             <button onClick="self.location.href='http://pulse.siigroup.com'" style="font-family: 'Raleway', sans-serif; font-size: 20px; background: #e63e30;" class="btn waves-effect waves-teal uk-modal-close" type="button">Quit</button>
+                            <button style="font-family: 'Raleway', sans-serif; font-size: 20px; background: #779949;" class="btn waves-effect waves-teal uk-modal-close" type="button">Save My Changes</button>
+                             <button onClick="window.close()" style="font-family: 'Raleway', sans-serif; font-size: 20px; background: #e63e30;" class="btn waves-effect waves-teal" type="button">Quit</button>
                         </div>
             </div>
         </div> 
