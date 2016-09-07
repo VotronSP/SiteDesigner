@@ -88,7 +88,16 @@
                 </div> 
             </div>
       </div>
-      
+
+      <!-- Content Structure Modal -->
+        <div id="contentStructureModal" class="uk-modal uk-text-center uk-container-center">
+            <div class="uk-modal-dialog uk-text-center uk-container-center" style="width:100%;">
+                <div class="uk-modal-header" style="font-family: 'Raleway', sans-serif; font-size: 20px;">Content and Structure</div>
+                <button style="font-family: 'Raleway', sans-serif; font-size: 20px; background: #e63e30;" class="btn waves-effect waves-light uk-modal-close" type="button">Close</button>
+                <iframe class="uk-height-viewport uk-width-viewport uk-text-center uk-container-center" frameborder="0" id="contentStructure"></iframe>    
+            </div>
+        </div>
+
         <!-- Help Modal -->
         <div id="helpClicked" class="uk-modal">
             <div class="uk-modal-dialog">

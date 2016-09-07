@@ -1,5 +1,6 @@
 var uWeb;
 var contextGetProps;
+var siteTitle;
 SP.SOD.executeFunc('sp.js','SP.ClientContext', getSiteProps);
 
     function getSiteProps() {
@@ -31,7 +32,6 @@ SP.SOD.executeFunc('sp.js','SP.ClientContext', getSiteProps);
 
     function setPageTitle() {      
         var newTitle = document.getElementById('site_title').value;
-        var siteTitle = uWeb.get_title();
         console.log(siteTitle);
         uWeb.set_title(newTitle);
         uWeb.update();

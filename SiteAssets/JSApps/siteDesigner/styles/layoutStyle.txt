@@ -1,0 +1,45 @@
+<script>
+var styleExists = true;
+</script>
+
+<style>
+.ms-core-listMenu-verticalBox .dynamic-children.additional-background {
+background-image: url(http://icons.iconarchive.com/icons/saki/nuoveXT/128/Small-arrow-right-icon.png);
+background-size: 20px 20px;
+}
+.lcnb_inner {
+max-width:800px !important;
+}
+.ms-webpart-titleText.ms-webpart-titleText, .ms-webpart-titleText > a {
+background:  #779949;
+    padding: 1px;
+    margin: 2px;
+    color: white;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+	   -moz-box-shadow: 0 10px 6px -6px #777;
+	        box-shadow: 0 10px 6px -6px #777;
+}
+.ms-core-listMenu-item, .ms-core-listMenu-item:link, .ms-core-listMenu-item:visited, .ms-tv-item:link, .ms-tv-item:visited, .ms-tv-header:link, .ms-tv-header:visited {
+color: #779949;
+}
+
+ul.dynamic .ms-core-listMenu-item {
+background: #fff;
+}
+.ms-core-sideNavBox-removeLeftMargin {
+background:transparent;
+    width: 180px;
+    margin-top: 18px;
+margin-left:0px !important;
+}
+.ms-WPBorder {
+border: none !important;
+}
+.ms-core-listMenu-selected:link, .ms-core-listMenu-selected:visited, .ms-core-listMenu-selected {
+background: #fff;
+}
+.ms-core-listMenu-verticalBox > .ms-core-listMenu-item, .ms-core-listMenu-verticalBox li.static > .ms-core-listMenu-item {
+border-bottom: 1px solid #cac8c7;
+font-weight:500;
+}
+</style>

@@ -8,12 +8,6 @@
         </div>
     </div>
 
-<div class="uk-grid uk-text-center" style="margin-top: 5px;">
-    <div class="uk-width-1-1">
-        <button id="applyPropChangesBtn" class="btn waves-effect waves-light" onClick="applyPropChanges();" style="background: #779949; font-family: 'Raleway', sans-serif; font-size: 20px;" class=" uk-button-success uk-button" type="button">Apply Changes</button>
-    </div>
-</div>
-
 <div class="propPanels uk-grid railwayFont uk-grid-match uk-grid-small" data-uk-grid-match="{target:'.propPanels'}">
     <div class="uk-width-1-6 uk-container-center uk-text-center">
     <div class="propPanels uk-panel uk-panel-box uk-panel-box-primary">
@@ -22,26 +16,28 @@
             <!-- Start user input -->
             <form>
                 <p>
-                    <input class="validate tooltipped" type="radio" name="group1" id="radio1" />
-                    <label for="radio1">Department/Team Site</label>
+                    <input class="validate tooltipped" type="radio" name="group1" id="deptTemp" />
+                    <label for="deptTemp">Department/Team Site</label>
                 </p>
                 <p>
-                    <input class="validate" type="radio" name="group1" id="radio2" />
-                    <label for="radio2">Project Site</label>
+                    <input class="validate" type="radio" name="group1" id="projTemp" />
+                    <label for="projTemp">Project Site</label>
                 </p>
                 <p>
-                    <input class="validate" type="radio" name="group1" id="radio3" />
-                    <label for="radio3">Global Functional Site</label>
+                    <input class="validate" type="radio" name="group1" id="funcTemp" />
+                    <label for="funcTemp">Global Functional Site</label>
                 </p>
                 <p>
-                    <input class="validate" type="radio" name="group1" id="radio4" />
-                    <label for="radio4">Plant Facilities Site</label>
+                    <input class="validate" type="radio" name="group1" id="facilTemp" />
+                    <label for="facilTemp">Plant Facilities Site</label>
                 </p>
                 <p>
-                    <input class="validate" type="radio" name="group1" id="radio5" />
-                    <label for="radio5">Regional Site</label>
+                    <input class="validate" type="radio" name="group1" id="regTemp" />
+                    <label for="regTemp">Regional Site</label>
                 </p>
             </form>
+            <br>
+            <button id="applyLayoutBtn" class="btn waves-effect waves-light" onClick="addStyleWebPart();" style="background: #779949; font-family: 'Raleway', sans-serif; font-size: 20px;" class=" uk-button-success uk-button" type="button">Apply Layout</button>
         </div>
     </div>   
 
@@ -68,6 +64,7 @@
                                 <label for="site_desc">Change Header Description</label>
                             </div>
                         </div>
+                        <button id="applyPropChangesBtn" class="btn waves-effect waves-light" onClick="applyPropChanges();" style="background: #779949; font-family: 'Raleway', sans-serif; font-size: 20px;" class=" uk-button-success uk-button" type="button">Apply Settings</button>
                     </form>
                 </div>
             </div>
@@ -81,8 +78,8 @@
             <div class="row">
                 <form>
                     <p>
-                        <input class="validate" type="checkbox" id="test1" />
-                        <label for="test1">News App</label>
+                        <input class="validate" type="checkbox" id="addNewsApp" />
+                        <label for="addNewsApp">News App</label>
                     </p>
                     <p>
                         <input class="validate" type="checkbox" id="test2" />
@@ -101,23 +98,11 @@
                         <label for="test5">Discussion Board</label>
                     </p>
                 </form>
+                <br>
+                <button id="applyAppInstallBtn" onClick="addStyleWebPart();" class="btn waves-effect waves-light" onClick="applyPropChanges();" style="background: #779949; font-family: 'Raleway', sans-serif; font-size: 20px;" class=" uk-button-success uk-button" type="button">Install Apps</button>
             </div>
         </div>
     </div>
 </div>
-
-
-<div class="uk-grid" style="margin-top: 5px;">
-    <div class="uk-width-1-2 uk-container-center uk-text-center">
-        <div class="uk-panel uk-panel-box uk-panel-box-primary">
-            <h3 class="uk-panel-title"><i class="fa fa-list" aria-hidden="true"></i> Lists and Libraries</h3>
-                <ul id="listInfo" class="collapsible" data-collapsible="accordion">
-                    
-                </ul>
-        </div>
-    </div>    
-</div>
-
 <div ng-init="loadProps()"></div>
-
 </div>

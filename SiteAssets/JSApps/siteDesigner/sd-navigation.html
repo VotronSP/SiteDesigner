@@ -3,17 +3,62 @@
         <div class="uk-margin-top uk-text-center">
             <span class="railwayFont" style="font-size: 30px;">
                 Managing Navigation for: 
-                <span class="uk-text-warning">
-                    Global IT
-                </span>
+                <span id="site_title_header" class="uk-text-warning"></span>
             </span>
         </div>
     </div>
 </div>
 
 <div class="uk-grid railwayFont uk-grid-small">
-    <div class="uk-width-1-1 uk-container-center uk-text-center">
-        <div class="uk-panel uk-panel-box uk-panel-box-primary" style="height:250px;">
+    <div class="uk-width-6-10 uk-container-center uk-text-center">
+        <div class="uk-panel uk-panel-box uk-panel-box-primary" style="height: 300px;">
+            <h3 class="uk-panel-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Create a <b>Parent Navigation</b> Link</h3>
+                <div class="input-field col s6">
+                    <input class="validate" id="addNav1" value="" type="text">
+                    <label for="addNav1">Title</label>
+                </div>
+                <div class="input-field col s6">
+                    <input class="validate" id="addNav2" value="" type="text">
+                    <label for="addNav2">URL</label>
+                </div>
+                    <input class="tooltipped" type="checkbox" name="navGroup" data-tooltip="Is this Link outside of Pulse?" id="isExternalURL" />
+                    <label for="isExternalURL">External URL</label>
+            <div class="uk-position-bottom-right uk-margin-right uk-margin-top uk-margin-bottom">
+              <a onclick="runCode()" data-position="top"" data-delay="50" data-tooltip="Add to Nav" class="btn-floating tooltipped btn-large waves-effect waves-light green"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            </div>
+        </div>
+<h4>OR</h4>
+        <div class="uk-panel uk-panel-box uk-panel-box-primary" style="height: 350px;">
+            <h3 class="uk-panel-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Create a <b>Child Navigation</b> Link</h3>
+                <div class="input-field col s6">
+                    <input class="validate" id="addNav1Child" value="" type="text">
+                    <label for="addNav1Child">Title</label>
+                </div>
+                <div class="input-field col s6">
+                    <input class="validate" id="addNav2Child" value="" type="text">
+                    <label for="addNav2Child">URL</label>
+                </div>
+                <div class="input-field col s12">
+                    <select id="selectChildParentNavNode">
+                        
+                    </select>
+                    <label style="font-size: 15px;">Parent Link</label>
+                 </div>
+                <div class="uk-position-bottom-right uk-margin-right uk-margin-top uk-margin-bottom">
+                    <a onclick="runCodeChild()" data-position="top"" data-delay="50" data-tooltip="Add to Parent Nav" class="btn-floating tooltipped btn-large waves-effect waves-light green"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                </div>
+        </div>
+    </div>
+
+    <div class="uk-width-1-4 uk-container-center">
+        <div class="uk-panel uk-panel-box uk-panel-box-primary uk-overflow-container">
+            <center>
+                <h3 class="uk-panel-title"><i class="fa fa-map-signs" aria-hidden="true"></i> Current Navigation</h3>
+            </center>
+                <hr> 
+            <div class="uk-position-left">
+                <span id="currentNav" style="font-size: 15px;"></span>
+            </div>
         </div>
     </div>
 </div>
