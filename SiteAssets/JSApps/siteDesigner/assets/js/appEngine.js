@@ -111,7 +111,7 @@ var sdApp = angular.module('sdApp', ['ngAnimate', 'ui.router'])
 // our controllers for the app
 // =============================================================================
 sdApp.controller('sdController', function($scope) {  
-
+   
 });
 
 sdApp.controller('sdHomeController', function($scope) { 
@@ -163,6 +163,9 @@ sdApp.controller('sdNavigationController', function($scope) {
 sdApp.controller('sdFinalizeController', function($scope) { 
 
 }); 
+//End Controllers
+
+
 
 // Loading Screen Messages
  function randomLoadingMessage() {

@@ -25,9 +25,37 @@ Design: Master CSS File for SPA (Page Layouts on Pulse)
 }
 
 .shadowTextHover:hover {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background: #ededed;
+    border-bottom: solid 5px #f5a81c;
+    text-shadow: 2px 8px 9px rgba(0,0,0,0.2),
+                 0px -5px 25px rgba(255,255,255,0.3);
+}
+.shadowTextHover1 {
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.shadowTextHover1:hover {
+    border-bottom: solid 5px #779949;
+    text-shadow: 2px 8px 9px rgba(0,0,0,0.2),
+                 0px -5px 25px rgba(255,255,255,0.3);
+}
+.shadowTextHover2 {
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.shadowTextHover2:hover {
+    border-bottom: solid 5px #72b1c8;
+    text-shadow: 2px 8px 9px rgba(0,0,0,0.2),
+                 0px -5px 25px rgba(255,255,255,0.3);
+}
+.shadowTextHover3 {
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.shadowTextHover3:hover {
+    border-bottom: solid 5px #e63e30;
     text-shadow: 2px 8px 9px rgba(0,0,0,0.2),
                  0px -5px 25px rgba(255,255,255,0.3);
 }
