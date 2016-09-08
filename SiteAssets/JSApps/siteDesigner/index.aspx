@@ -13,6 +13,7 @@
         <script src="/_layouts/SP.Runtime.js"></script>
         <script src="/_layouts/SP.js"></script>
         <script src="/_layouts/SP.UI.Dialog.js"></script>
+        <script type="text/javascript" src="/_layouts/15/sp.publishing.js"></script>
         <script src="/_layouts/ScriptResx.ashx?culture=en%2Dus&name=SP%2ERes"></script>
         <title>
             Site Designer: Design, Organize and Simplify your Site
