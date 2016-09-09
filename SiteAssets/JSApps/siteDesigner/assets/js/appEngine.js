@@ -13,6 +13,7 @@ Design: Master JS File for SPA (Page Layouts on Pulse)
 var siteRelURL = window.opener.siteURL;
 console.log(siteRelURL);
 
+
 //Requests
 $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
     options.async = true;
@@ -41,6 +42,10 @@ $.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/getNav.js", func
 });
 $.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/createLayout.js", function(){
   console.log("Loaded createLayoutJS");
+
+});
+$.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/checkTempExists.js", function(){
+  console.log("Loaded checkTempExistsJS");
 
 });
 
@@ -111,19 +116,22 @@ var sdApp = angular.module('sdApp', ['ngAnimate', 'ui.router'])
 // our controllers for the app
 // =============================================================================
 sdApp.controller('sdController', function($scope) {  
-   
+
 });
 
 sdApp.controller('sdHomeController', function($scope) { 
 $scope.loadProps = function loadUser() {
        checkUserPermissions();
        getUserProps();
-}
+    }
 }); 
 
 sdApp.controller('sdInitialController', function($scope) { 
 $scope.loadProps = function loadProps() {
-    clickedSitePropertiesTitle();
+    //checkTempExists();
+    checkTempExists();
+    //getprop
+clickedSitePropertiesTitle();
     }
 }); 
 
@@ -186,12 +194,12 @@ sdApp.controller('sdFinalizeController', function($scope) {
 //Modal on Startup
 function modalStartApp() {
     
-    UIkit.modal.alert("<span><span style='font-family: Raleway, sans-serif; font-size: 65px;'>s<span style='color:#779949;'>i</span><span style='color:#72b1c8;'>t</span><span style='color:#f5a81c;'>e</span></span>" +
+    /*UIkit.modal.alert("<span><span style='font-family: Raleway, sans-serif; font-size: 65px;'>s<span style='color:#779949;'>i</span><span style='color:#72b1c8;'>t</span><span style='color:#f5a81c;'>e</span></span>" +
     "<span class='uk-text-top shadowText' style='color: #0071b9; font-family: Raleway, sans-serif; font-size: 25px;'>designer<span class='uk-text-top' style='color:#e63e30;'>.</span></span></span><hr>" +
     "<span class='railwayFont uk-text-center'>Welcome to <b>Site Designer</b> for Pulse. <br> Site Designer will make everything easy for you when it comes to managing" +
     " content on your Pulse site! Here, you'll be able to modify your site properties, create a design based off of a pre-developed layout," +
     " customize your navigation and implement your changes straight from one easy to use Interface.<br><br><span class='uk-text-danger'>Read the quick tip <u>panels</u> upon closing this notification.</span><br><br><center><span class='uk-text-warning uk-text-center' style='font-weight: 600;'>For the best User Experience, maximize the app window.</span>" +
-    "<br><b> Click 'ok' to continue.<b></center></span>");
+    "<br><b> Click 'ok' to continue.<b></center></span>");*/
 
     Materialize.toast('Welcome, ' +currentUser.get_title().split(',')[1]+ ' ' +currentUser.get_title().split(',')[0]+'!', 5000, 'standardToast');
 }

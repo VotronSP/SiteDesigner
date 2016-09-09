@@ -33,7 +33,12 @@ function createBlankLayout() {
 
                 contextClientBL.executeQueryAsync(function(){
                     Materialize.toast('<b>Success!<b><br> The layout has been created' , 8000, 'successToast');
-                     applyLayoutBtn.disabled=false;
+                     applyLayoutBtn.disabled=true;
+                     document.getElementById("projTemp").disabled = true;
+        document.getElementById("funcTemp").disabled = true;
+        document.getElementById("facilTemp").disabled = true;
+        document.getElementById("regTemp").disabled = true;
+        document.getElementById("applyLayoutBtn").disabled = true;
                     applyLayoutBtn.innerHTML='Apply Layout';
                  }, Function.createDelegate(this, logError));
                 }
@@ -73,11 +78,16 @@ function addWebPart(webUrl, pageUrl,webPartXml,zoneId,zoneIndex, Success,Error){
 }
 
 function addWebPartsButton() {
-    applyAppInstallBtn.disabled=true; 
-    applyAppInstallBtn.innerHTML='<i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i> Installing...';
-
-
-//Add news app
+if (document.getElementById('addNewsApp').checked == false && document.getElementById('calendarApp').checked == false
+&& document.getElementById('resourceIconsApp').checked == false && document.getElementById('featuredLinksApp').checked == false
+&& document.getElementById('discussionsBApp').checked == false) {
+     applyAppInstallBtn.disabled=false;
+     applyAppInstallBtn.innerHTML='Install';
+    Materialize.toast('Error! You have not selected an app to install.', 5000, 'failToast');
+} else {
+applyAppInstallBtn.disabled=true; 
+applyAppInstallBtn.innerHTML='<i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i> Installing...';
+    //Add news app
 if (document.getElementById('addNewsApp').checked == true) {
 newsWebPart = '<?xml version="1.0" encoding="utf-8"?>' +
 '<WebPart xmlns="http://schemas.microsoft.com/WebPart/v2">' +
@@ -91,9 +101,13 @@ newsWebPart = '<?xml version="1.0" encoding="utf-8"?>' +
     '<PartImageLarge>/_layouts/15/images/mscontl.gif</PartImageLarge>' +
 '</WebPart>';
 addWebPart(siteRelURL, 'Pages/start.aspx', newsWebPart, 'Center Left', 1, function(webPart){
-    console.log(webPart.get_title() + ' has been added'); 
+    applyAppInstallBtn.disabled=false;
+    addNewsApp.disabled=true;
+    addNewsApp.checked=false;
+    Materialize.toast('Success! The News App has been installed on your page.', 5000, 'successToast'); 
+    applyAppInstallBtn.innerHTML='Install';
 },function(sender,args){
-    console.log(args.get_message());
+    Materialize.toast('Error!' +args.get_message(), 5000, 'successToast');
 });
 } else {
     console.log('not checked');
@@ -121,7 +135,6 @@ if (document.getElementById('calendarApp').checked == true) {
     console.log('calendar not checked');
     }
 }
-
 function addGetCalendarGUID() { 
     var contextCalendar3 = new SP.ClientContext(siteRelURL);
     var getCalId = contextCalendar3.get_web().get_lists().getByTitle('Calendar');
@@ -149,14 +162,18 @@ function addGetCalendarGUID() {
 }
 
     function addCalendarWebPart() {
-        console.log(calId);
+    console.log(calId);
     addWebPart(siteRelURL, 'Pages/start.aspx', calendarWebPart, 'Footer', 1, function(webPart){
+            applyAppInstallBtn.disabled=false;
+    calendarApp.disabled=true;
+    calendarApp.checked=false;
+         Materialize.toast('Success! The Calendar App has been installed on your page.', 5000, 'successToast');
 },function(sender,args){
-    console.log(args.get_message());
+    Materialize.toast('Error!' +args.get_message(), 5000, 'successToast');
         });
     }
-
-    //Add
+}
+    
 
 
 

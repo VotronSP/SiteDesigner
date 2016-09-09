@@ -21,7 +21,7 @@
         <!-- Master CSS -->
         <link rel="stylesheet" type="text/css" href="/SiteAssets/JSApps/siteDesigner/styles/master.css">
         <!-- UI Kit Style -->
-        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.almost-flat.min.css">
+        <link rel="stylesheet" type="text/css" href="/SiteAssets/JSApps/siteDesigner/styles/uikitstyle.css">
         <!-- UI Font Raleway -->
         <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <!-- Animate CSS -->
@@ -129,11 +129,11 @@
     <div>
 </body>
         <!-- jQuery Script CDN Injection -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="/SiteAssets/JSApps/siteDesigner/assets/js/jquery.min.js"></script>
         <!-- Angular Script CDN Injection -->
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+        <script src="/SiteAssets/JSApps/siteDesigner/assets/js/angular.min.js"></script>
+        <script src="/SiteAssets/JSApps/siteDesigner/assets/js/angular-ui-router.min.js"></script>
+        <script src="/SiteAssets/JSApps/siteDesigner/assets/js/angular-animate.min.js"></script>
         <!--<script src="assets/js/AngularSP.min.js"></script>
         <script src="assets/js/ng-sharepoint.min.js"></script>-->
         <!-- Loading Screen Injection -->
@@ -151,9 +151,9 @@
             });
         </script>
         <!-- UI Kit Script CDN Injection -->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/js/uikit.min.js"></script>
+        <script src="/SiteAssets/JSApps/siteDesigner/assets/js/uikit.min.js"></script>
         <!-- FontAwesome CDN Injection -->
-        <script src="http://use.fontawesome.com/5f18e925bc.js"></script>
+        <script src="/SiteAssets/JSApps/siteDesigner/assets/js/font-awesome.min.js"></script>
         <!-- Materialize JS for Forms Injection -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script src="/SiteAssets/JSApps/siteDesigner/assets/js/materialize.min.js"></script>
 </html>

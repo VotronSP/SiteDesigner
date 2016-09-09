@@ -10,8 +10,8 @@
 
 <div class="propPanels uk-grid railwayFont uk-grid-match uk-grid-small" data-uk-grid-match="{target:'.propPanels'}">
     <div class="uk-width-1-6 uk-container-center uk-text-center">
-    <div class="propPanels uk-panel uk-panel-box uk-panel-box-primary">
-        <h3 class="uk-panel-title"><i class="fa fa-sitemap" aria-hidden="true"></i> Select a Layout</h3>
+    <div class="propPanels uk-panel uk-panel-box uk-panel-box-primary" data-intro='Hello step one!'>
+        <h3 id="selectLayoutTitle" class="uk-panel-title"><i class="fa fa-sitemap" aria-hidden="true"></i> Select a Layout</h3>
                    
             <!-- Start user input -->
             <form>
@@ -86,20 +86,20 @@
                         <label for="calendarApp">Calendar</label>
                     </p>
                     <p>
-                        <input class="validate" type="checkbox" id="test3" />
-                        <label for="test3">Resource Icons</label>
+                        <input class="validate" type="checkbox" id="resourceIconsApp" />
+                        <label for="resourceIconsApp">Resource Icons</label>
                     </p>
                     <p>
-                        <input class="validate" type="checkbox" id="test4" />
-                        <label for="test4">Featured Links</label>
+                        <input class="validate" type="checkbox" id="featuredLinksApp" />
+                        <label for="featuredLinksApp">Featured Links</label>
                     </p>
                     <p>
-                        <input class="validate" type="checkbox" id="test5" />
-                        <label for="test5">Discussion Board</label>
+                        <input class="validate" type="checkbox" id="discussionsBApp" />
+                        <label for="discussionsBApp">Discussion Board</label>
                     </p>
                 </form>
                 <br>
-                <button id="applyAppInstallBtn" onClick="addWebPartsButton();" class="btn waves-effect waves-light" onClick="applyPropChanges();" style="background: #779949; font-family: 'Raleway', sans-serif; font-size: 20px;" class=" uk-button-success uk-button" type="button">Install Apps</button>
+                <button id="applyAppInstallBtn" onClick="addWebPartsButton();" class="btn waves-effect waves-light" style="background: #779949; font-family: 'Raleway', sans-serif; font-size: 20px;" class=" uk-button-success uk-button" type="button">Install Apps</button>
             </div>
         </div>
     </div>
