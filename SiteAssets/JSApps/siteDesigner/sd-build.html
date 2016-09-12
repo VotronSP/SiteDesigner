@@ -1,63 +1,126 @@
 <!-- Launch the Toolkit -->
-<div class="uk-margin-top uk-text-center">
-<button id="applyDesignChangesBtn" onClick="applyDesignChanges();" style="background: #779949; font-family: 'Raleway', sans-serif; font-size: 20px;" class="btn waves-effect waves-teal">Apply Design</button>
+<div class="uk-margin-top uk-clearfix">
+<button data-position="bottom" data-delay="50" data-tooltip="View a Live Preview" id="previewDesignBtn" onClick="loadIframeClassesPreview()" data-uk-modal="{target:'#livePreviewModal'}" style="background: #f5a81c; font-family: 'Raleway', sans-serif; font-size: 20px; width:85px;" class="btn tooltipped uk-float-left uk-margin-left"><i class="fa fa-eye" aria-hidden="true"></i></button>
+<button data-position="bottom" data-delay="50" data-tooltip="Add Web Parts" data-target="modal1" class="modal-trigger btn tooltipped1 uk-float-left uk-margin-left" style="font-family: 'Raleway', sans-serif; font-size: 15px; background:#72b1c8; width:85px;" ><i class="fa fa-plus" aria-hidden="true"></i></button>
+<button id="applyDesignChangesBtn" onClick="applyDesignChanges();" style="font-family: 'Raleway', sans-serif; font-size: 20px; background: #779949;" class="btn uk-float-right uk-margin-right"><i class="fa fa-upload" aria-hidden="true"></i> Publish Design</button>
 </div>
 
+<!-- Loader -->
+<center id="loader">
+     <h1 style="font-family: 'Raleway', sans-serif;">Building your Layout, please wait...</h1>
+    <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+</center>
+
 <!-- Grid of Layout -->
-<div class="uk-grid uk-grid-small">
+<div id="content" class="uk-grid uk-grid-small">
     <div class="uk-width-1-1">
-         <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 100px;">
-             <span style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Header Image</span>
-                <a class="uk-text-top uk-float-right" style="font-family: 'Raleway', sans-serif;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add an Image</a>
+         <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top">
+           <span id="headerWP" style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Header Image</span>
+                <a class="uk-text-top uk-float-right" style="font-family: 'Raleway', sans-serif;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Change Header Image</a>
         </div>
     </div>
     <div class="uk-width-1-6 uk-float-left">
-         <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 400px;">
+         <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" >
              <span style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Navigation</span>
-            <div class="uk-align-medium-right">
-                <span style="font-family: 'Raleway', sans-serif;">managed in Step 3.</span>
+            <div id="currentNav">
+                
             </div>
+            <a href="#/sd/navigation" style="font-family: RaleWay">Manage</a>
         </div>
     </div>
     <div class="uk-width-1-2">
-         <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 200px;">
-             <span style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Web Part Zone Top</span>
-            <div class="uk-align-medium-right">
-                <a class="uk-text-top uk-float-right" style="font-family: 'Raleway', sans-serif;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add a Web Part</a>
-            </div>
+         <div id="wp1" class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 200px;">
+             <span id="wp1Inner" style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Web Part Zone Top</span>
         </div>
-        <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 200px;">
-             <span style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Web Part Zone Middle</span>
-            <div class="uk-align-medium-right">
-                <a class="uk-text-top uk-float-right" style="font-family: 'Raleway', sans-serif;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add a Web Part</a>
-            </div>
+        <div id="wp2" class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 200px;">
+             <span id="wp2Inner" style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Web Part Zone Middle</span>
         </div>
-        <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 200px;">
+        <div id="calendarWP" class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top">
              <span style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Calendar</span>
-            <div class="uk-align-medium-right">
-                <a class="uk-text-top uk-float-right" style="font-family: 'Raleway', sans-serif;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add a Calendar</a>
-            </div>
+             <span id="calendarWPinner"></span>
         </div>
     </div>
     <div class="uk-width-1-3 uk-float-right">
-        <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 100px;">
-            <span style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Web Part Zone Right</span>
-            <div class="uk-align-medium-right">
-                <a class="uk-text-top uk-float-right" style="font-family: 'Raleway', sans-serif;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add a Web Part</a>
-            </div>
+        <div  id="wp3" class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 100px;">
+            <span id="wp3Inner" style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Web Part Zone Right</span>
         </div>
-         <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 100px;">
+         <div id="featuredLinksWP" class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 100px;">
             <span style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Featured Links</span>
-            <div class="uk-align-medium-right">
-                <a class="uk-text-top uk-float-right" style="font-family: 'Raleway', sans-serif;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add Featured Links</a>
-            </div>
+             <a class="uk-text-top uk-float-right" style="font-family: 'Raleway', sans-serif;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add New Links</a>
+            <div id="featuredLinksWPinner"></div>
         </div>
-        <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top" style="height: 100px;">
+        <div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top">
             <span style="color:#000; font-family: 'Raleway', sans-serif; font-size: 20px;">Site Contacts</span>
-            <div class="uk-align-medium-right">
-                <a class="uk-text-top uk-float-right" style="font-family: 'Raleway', sans-serif;"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Add Site Contacts</a>
-            </div>
+           <ul id="siteContacts" class="uk-list uk-list-line">
+
+           </ul>
         </div>
     </div>
 </div>
+        
+<script>
+
+
+
+$(document).ready(function(){
+           document.getElementById('livePreview').src =  siteRelURL + '/Pages/start.aspx';
+           $('#calendarWPinner').load('http://pulse.siigroup.com/IT/EPO/Pages/start.aspx #WebPartWPQ3');
+           $('#featuredLinksWPinner').load('http://pulse.siigroup.com/IT/EPO/Pages/start.aspx #WebPartWPQ4');
+            $('#headerWP').load('http://pulse.siigroup.com/IT/EPO/Pages/start.aspx #headerImg');
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('#content').hide();
+        window.setTimeout(function(){
+$('#loader').fadeOut('fast');
+$('#content').fadeIn('slow');
+$('.modal-trigger').leanModal();
+  },10000);
+});
+function loadIframeClassesPreview() {
+   
+    livePreviewModalDiv.innerHTML='Live Preview of your Layout';
+    $("iframe").contents().find("#ms-designer-ribbon").css("display", "none");
+
+}
+</script>
+ <div ng-init="loadBuild()"></div>
 

@@ -90,14 +90,104 @@
             </div>
       </div>
 
-      <!-- Content Structure Modal -->
+      <!-- Content Structure Modal 
         <div id="contentStructureModal" class="uk-modal uk-text-center uk-container-center">
             <div class="uk-modal-dialog uk-text-center uk-container-center" style="width:100%;">
                 <div class="uk-modal-header" style="font-family: 'Raleway', sans-serif; font-size: 20px;">Content and Structure</div>
                 <button style="font-family: 'Raleway', sans-serif; font-size: 20px; background: #e63e30;" class="btn waves-effect waves-light uk-modal-close" type="button">Close</button>
                 <iframe class="uk-height-viewport uk-width-viewport uk-text-center uk-container-center" frameborder="0" id="contentStructure"></iframe>    
             </div>
+        </div>-->
+
+        <!-- Live Preview Modal -->
+        <div id="livePreviewModal" class="uk-modal uk-text-center uk-container-center">
+            <div class="uk-modal-dialog uk-text-center uk-container-center" style="width:100%;">
+                <div id="livePreviewModalDiv" class="uk-modal-header" style="font-family: 'Raleway', sans-serif; font-size: 20px;"></div>
+                <button style="font-family: 'Raleway', sans-serif; font-size: 20px; background: #e63e30;" class="btn waves-effect waves-light uk-modal-close" type="button">Close</button>
+                <br>
+                <iframe class="uk-height-viewport uk-width-viewport uk-text-center uk-container-center" frameborder="0" id="livePreview"></iframe>    
+            </div>
         </div>
+
+<!-- Add WebPart Modal -->
+
+  <div id="modal1" class="l modal bottom-sheet">
+    <div class="modal-content">
+      <h5>Add an Existing WebPart</h5>
+      <h6>Only SiteDesigner supported Web Parts are being shown.</h6>
+     <hr>
+<div class="row" style="height:150px;">
+
+    <div class="col s12 m6 l3">
+        <h5 class="header">Content Editor</h5>
+        <div class="card horizontal hoverable"  style="height:250px;">
+      <div class="card-image">
+        <img src="http://pulse.siigroup.com/NavIconDB/System%20Icons/Troubleshooting.png">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Allows authors to enter rich text content.</p>
+        </div>
+        <div class="card-action">
+           <a data-position="left" data-delay="50" data-tooltip="Add Web Part" class="right btn-floating tooltipped btn-large waves-effect waves-light green"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
+      </div>
+        </div>
+    </div>
+
+    <div class="col s12 m6 l3">
+        <h5 class="header">Script Editor</h5>
+    <div class="card horizontal hoverable"  style="height:250px;">
+      <div class="card-image">
+        <img src="http://pulse.siigroup.com/NavIconDB/System%20Icons/Java.png">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Allows authors to insert HTML snippets or scripts..</p>
+        </div>
+        <div class="card-action">
+           <a data-position="left" data-delay="50" data-tooltip="Add Web Part" class="right btn-floating tooltipped btn-large waves-effect waves-light green"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="col s12 m6 l3">
+        <h5 class="header">Image Viewer</h5>
+    <div class="card horizontal hoverable"  style="height:250px;">
+      <div class="card-image">
+        <img src="http://pulse.siigroup.com/NavIconDB/OS%20Icons/Pictures%20Folder.png">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Displays a specified image.</p>
+        </div>
+        <div class="card-action">
+           <a data-position="left" data-delay="50" data-tooltip="Add Web Part" class="right btn-floating tooltipped btn-large waves-effect waves-light green"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="col s12 m6 l3"><h5 class="header">Excel Web Access</h5>
+    <div class="card horizontal hoverable" style="height:250px;">
+      <div class="card-image">
+        <img src="http://pulse.siigroup.com/NavIconDB/Office%20Apps/Excel%202013.png">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Use the Excel Web Access Web Part to interact with an Excel workbook as a Web page..</p>
+        </div>
+        <div class="card-action">
+          <a data-position="left" data-delay="50" data-tooltip="Add Web Part" class="right btn-floating tooltipped btn-large waves-effect waves-light green"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+    </div>
+  </div>
 
         <!-- Help Modal -->
         <div id="helpClicked" class="uk-modal">
@@ -121,8 +211,7 @@
                         <br>
                         <div class="uk-text-center">
                             <button style="font-family: 'Raleway', sans-serif; font-size: 20px;" class="btn waves-effect waves-teal uk-modal-close" type="button">Back</button>
-                            <button style="font-family: 'Raleway', sans-serif; font-size: 20px; background: #779949;" class="btn waves-effect waves-teal uk-modal-close" type="button">Save My Changes</button>
-                             <button onClick="window.close()" style="font-family: 'Raleway', sans-serif; font-size: 20px; background: #e63e30;" class="btn waves-effect waves-teal" type="button">Quit</button>
+                            <button onClick="window.close()" style="font-family: 'Raleway', sans-serif; font-size: 20px; background: #e63e30;" class="btn waves-effect waves-teal" type="button">Quit</button>
                         </div>
             </div>
         </div> 

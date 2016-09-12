@@ -9,9 +9,11 @@ Design: Master JS File for SPA (Page Layouts on Pulse)
 // Create our SPA and inject ngAnimate and ui-router 
 // =============================================================================
 
-//Load Globa Variable for Relative url
+//Load Global Variable for Relative url
 var siteRelURL = window.opener.siteURL;
 console.log(siteRelURL);
+
+
 
 
 //Requests
@@ -48,7 +50,10 @@ $.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/checkTempExists.
   console.log("Loaded checkTempExistsJS");
 
 });
+$.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/checkBuild.js", function(){
+  console.log("Loaded checkBuildJS");
 
+});
 
 var sdApp = angular.module('sdApp', ['ngAnimate', 'ui.router'])
 
@@ -130,6 +135,7 @@ sdApp.controller('sdInitialController', function($scope) {
 $scope.loadProps = function loadProps() {
     //checkTempExists();
     checkTempExists();
+    checkApps();
     //getprop
 clickedSitePropertiesTitle();
     }
@@ -156,7 +162,15 @@ $scope.openListSettings = function() {
 });
 
 sdApp.controller('sdBuildController', function($scope) { 
-
+$scope.loadBuild = function loadBuild() {
+    getNavigationNodesBuild();
+    checkBuild();
+  retrieveAllUsersInGroup();
+     $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+    $('.tooltipped1').tooltip({delay: 50});
+     });
+            }
 }); 
 
 sdApp.controller('sdNavigationController', function($scope) { 
@@ -201,7 +215,7 @@ function modalStartApp() {
     " customize your navigation and implement your changes straight from one easy to use Interface.<br><br><span class='uk-text-danger'>Read the quick tip <u>panels</u> upon closing this notification.</span><br><br><center><span class='uk-text-warning uk-text-center' style='font-weight: 600;'>For the best User Experience, maximize the app window.</span>" +
     "<br><b> Click 'ok' to continue.<b></center></span>");*/
 
-    Materialize.toast('Welcome, ' +currentUser.get_title().split(',')[1]+ ' ' +currentUser.get_title().split(',')[0]+'!', 5000, 'standardToast');
+    Materialize.toast('Welcome, ' +currentUser.get_title().split(',')[1]+ ' ' +currentUser.get_title().split(',')[0]+'!', 10000, 'standardToast');
 }
 
 
@@ -262,19 +276,12 @@ function applyDesignChanges()
   applyDesignChangesDone();
   }
 
-function applyDesignChangesDone()
-{
-  window.setTimeout(function(){
-      try{
-        applyDesignChangesBtn.disabled=false;
-        applyDesignChangesBtn.innerHTML='Apply Design';
-        /* Always last script line */ Materialize.toast('Changes Applied Successfully', 4000, 'successToast')
+function applyDesignChangesDone(){
+        document.getElementById('applyDesignChangesBtn').disabled=true; 
+        document.getElementById('applyDesignChangesBtn').innerHTML='<i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i> Please wait...';
+        window.setTimeout(function(){
+        /* Always last script line */ Materialize.toast('Your Design has been Published', 4000, 'successToast')
+        document.getElementById('applyDesignChangesBtn').disabled=false; 
+        document.getElementById('applyDesignChangesBtn').innerHTML='Publish Design';
+        },3500);
         }
-      catch (err) {
-        Materialize.toast('Error! Contact Service Desk.<br>Message: ' + err.message, 8000, 'failToast')
-        }
-  },3500);
-}
-
-
-

@@ -14,7 +14,7 @@ function onSuccessMethod(sender, args) {
         if (webPerm.get_effectiveBasePermissions().has(SP.PermissionKind.manageWeb)) {
             setTimeout(function(){
             loading_screen.finish();
-            },3000);
+            },5000);
             console.log("Permissions Sufficient for " +siteRelURL);
     } 
     else if (webPerm.get_effectiveBasePermissions().has(SP.PermissionKind.manageWeb) == false) {
