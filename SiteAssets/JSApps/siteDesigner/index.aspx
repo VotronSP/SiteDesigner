@@ -31,7 +31,11 @@
         <!-- Please Wait Loading Screen -->
         <link href="/SiteAssets/JSApps/siteDesigner/styles/please-wait.css" rel="stylesheet">
         <!-- Materialize Form CSS -->
-        <link rel="stylesheet" href="/SiteAssets/JSApps/siteDesigner/styles/materialize.css">
+        <link rel="stylesheet" href="/SiteAssets/JSApps/siteDesigner/styles/materialize.css">     
+        <!-- Tour CSS -->
+        <link rel="stylesheet" href="/SiteAssets/JSApps/siteDesigner/styles/bootstrap-tour.css">
+
+
         <!-- Favicon -->
         <link rel="icon" type="image/png" sizes="32x32" href="/SiteAssets/JSApps/siteDesigner/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/SiteAssets/JSApps/siteDesigner/favicon/favicon-96x96.png">
@@ -75,7 +79,7 @@
         <!-- Beta Disclaimer -->
         <div class="uk-alert uk-alert-warning">
             <span style="font-family: 'Raleway', sans-serif; font-size: 15px;">
-            Site designer for Pulse is currently in <b>pre-beta development</b>. 
+            Site designer for Pulse is currently in <b>beta development</b>. 
             This App will not function until we finalize the design. Contact <a href="http://usns030:8888/SMPortal/SitePages/Service%20Catalog.aspx">Service Desk</a> with any questions/concerns.
             </span>
         </div>
@@ -84,7 +88,7 @@
         <div ng-app="sdApp" class="uk-grid uk-animation-scale-down">
             <div class="uk-width-1-1 uk-container-center">
                 <div class="">
-                    <div ui-view>
+                    <div id="uiView" ui-view>
                     </div>
                 </div> 
             </div>
@@ -245,4 +249,8 @@
         <script src="/SiteAssets/JSApps/siteDesigner/assets/js/font-awesome.min.js"></script>
         <!-- Materialize JS for Forms Injection -->
         <script src="/SiteAssets/JSApps/siteDesigner/assets/js/materialize.min.js"></script>
+        <!-- BS JS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+         <!-- Tour JS -->
+        <script src="/SiteAssets/JSApps/siteDesigner/assets/js/bootstrap-tour.js"></script>
 </html>

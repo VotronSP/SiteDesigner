@@ -120,6 +120,7 @@ var sdApp = angular.module('sdApp', ['ngAnimate', 'ui.router'])
 
 // our controllers for the app
 // =============================================================================
+
 sdApp.controller('sdController', function($scope) {  
 
 });
@@ -132,6 +133,10 @@ $scope.loadProps = function loadUser() {
 }); 
 
 sdApp.controller('sdInitialController', function($scope) { 
+ //$.getScript("/SiteAssets/JSApps/siteDesigner/assets/js/appTools/tourEngine.js", function(){
+ // console.log("Loaded tourEngine");
+  
+});
 $scope.loadProps = function loadProps() {
     //checkTempExists();
     checkTempExists();
@@ -139,6 +144,7 @@ $scope.loadProps = function loadProps() {
     //getprop
 clickedSitePropertiesTitle();
     }
+       
 }); 
 
 sdApp.controller('sdListsController', function($scope, $state, $compile, $timeout) { 
